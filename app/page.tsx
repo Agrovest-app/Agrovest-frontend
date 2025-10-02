@@ -1,103 +1,95 @@
+"use client";
 import Image from "next/image";
+import Link from "next/link";
+import { FaFacebookF } from "react-icons/fa6";
+import { FiPhoneCall } from "react-icons/fi";
+import { TfiEmail } from "react-icons/tfi";
+import { PiTelegramLogo } from "react-icons/pi";
+import { FaInstagram } from "react-icons/fa";
+import { CiLinkedin } from "react-icons/ci";
+import { useState, useEffect } from "react";
+
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [scrolled, setScrolled] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10); // 10px scroll before bg shows
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <> 
+    <div className="relative flex flex-col justify-center w-full items-center">
+      <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full bg-black opacity-70">
+      </div>
+      <header>
+      <div className="absolute left-0  py-3 bg-[#314908] w-full z-30">
+        <div className="flex w-11/12 m-auto items-center justify-between">
+        <div className="flex items-center gap-x-9">
+        <div className="flex items-center gap-x-3 cursor-pointer group border-r border-gray-400 pr-8">
+        <FiPhoneCall size={18} className="text-white transition duration-500 ease-in-out group-hover:text-[#8cbb37]"/>  <p className="transition duration-500 ease-in-out group-hover:text-[#8cbb37] text-white font-medium text-md">+234 703 027 5140</p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="flex group items-center gap-x-3 cursor-pointer border-r border-gray-400 pr-8">
+        <TfiEmail size={18} className="text-white transition duration-500 ease-in-out group-hover:text-[#8cbb37]"/>  <p className="transition duration-500 ease-in-out group-hover:text-[#8cbb37] text-white font-meduim text-md">info@agro-vest.com</p>
+        </div>
+        </div>
+        <div className="flex items-center gap-x-5">
+          <FaInstagram className="cursor-pointer text-[#AFE67F] transition duration-500 ease-in-out hover:text-[#ffffff]" size={20}/>
+          <PiTelegramLogo className="cursor-pointer text-[#AFE67F] transition duration-500 ease-in-out hover:text-[#ffffff]" size={20}/>
+          <FaFacebookF className="cursor-pointer text-[#AFE67F] transition duration-500 ease-in-out hover:text-[#ffffff]" size={20}/>
+          <CiLinkedin className="cursor-pointer text-[#AFE67F] transition duration-500 ease-in-out hover:text-[#ffffff]" size={26}/>
+          </div>
+        </div>
+      </div>
+        <nav className={`flex justify-between items-center z-30 w-11/12 gap-x-5 fixed py-5 transition-colors duration-800 ease-in-out ${
+        scrolled ? "bg-black shadow-md w-full left-0 px-9 top-0" : "bg-transparent left-14 top-18"}`}>
+    <Link href="#" className="flex items-center gap-x-3">
+    <Image src={"/imgs/logo.png"} 
+    alt="logo"
+    width={246}
+    height={221}
+    className="w-14 h-auto"
+    />
+    <span className="text-white text-3xl font-medium">Agrovest</span>
+    </Link>
+    <ul className="flex gap-x-9">
+      <li className="relative group pb-1 text-white font-medium text-xl cursor-pointer transition duration-500 ease-in-out hover:text-[#AFE67F]"><Link href="#">About
+            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-[#AFE67F] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+      </Link></li>
+      <li className="relative group pb-1 text-white font-medium text-xl cursor-pointer transition duration-500 ease-in-out hover:text-[#AFE67F]"><Link href="#">Services
+            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-[#AFE67F] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+      </Link></li>
+      <li className="relative group pb-1 text-white font-medium text-xl cursor-pointer transition duration-500 ease-in-out hover:text-[#AFE67F]"><Link href="#">FAQs
+            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-[#AFE67F] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+      </Link></li>
+      <li className="relative group pb-1 text-white font-medium text-xl cursor-pointer transition duration-500 ease-in-out hover:text-[#AFE67F]"><Link href="#">Contact
+            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-[#AFE67F] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+      </Link></li>
+
+
+    </ul>
+            <button className="text-white border rounded-lg px-12 py-4 font-medium uppercase text-sm bg-white/10 hover:bg-white transition-all duration-500 cursor-pointer ease-in-out hover:text-black">Join Us</button>
+
+        </nav>
+      </header>
+        <div className="absolute z-30 w-11/12 mx-auto flex items-center justify-between mt-9">
+         <h1 className="text-7xl text-white font-medium w-6/12">
+Empowering Africa’s Farmers. Feeding the World.</h1>
+        <div className="w-4/12">
+        <p className=" text-white text-2xl font-medium">
+At Agrovest, we’re transforming agriculture with strategic training, smart logistics, and data-driven solutions, connecting African farmers to global markets.</p>
+        <div className="flex items-center gap-3 mt-8">
+        <button className="bg-[#8cbb37] rounded-lg px-8 py-4 font-medium uppercase text-sm transition-all duration-500 cursor-pointer ease-in-out hover:scale-90 hover:bg-white">Join as a Farmer</button> <br />
+        <button className="text-white border rounded-lg px-8 py-4 font-medium uppercase text-sm bg-white/10 hover:bg-white transition-all duration-500 cursor-pointer ease-in-out hover:text-black hover:scale-90">Join as a Buyer</button>
+        </div> </div>
+        </div>
+      <video className="w-full" src="/videos/vid.mp4" loop autoPlay muted playsInline></video>
     </div>
+    </>
   );
 }
