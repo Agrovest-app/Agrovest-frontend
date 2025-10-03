@@ -1,27 +1,8 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
-import { FaFacebookF } from "react-icons/fa6";
-import { FiPhoneCall } from "react-icons/fi";
-import { TfiEmail } from "react-icons/tfi";
-import { PiTelegramLogo } from "react-icons/pi";
-import { FaInstagram } from "react-icons/fa";
-import { CiLinkedin } from "react-icons/ci";
-import { useState, useEffect } from "react";
-
 
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10); // 10px scroll before bg shows
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <> 
@@ -40,7 +21,7 @@ At Agrovest, we’re transforming agriculture with strategic training, smart log
         <button className="text-white border rounded-lg px-8 py-4 font-medium uppercase text-sm bg-white/10 hover:bg-white transition-all duration-500 cursor-pointer ease-in-out hover:text-black hover:scale-90">Join as a Buyer</button>
         </div> </div>
         </div>
-      <video className="w-full" src="/videos/vid.mp4" loop autoPlay muted playsInline></video>
+      <video className="w-full" src="/videos/Vid.mp4" loop autoPlay muted playsInline></video>
     </div>
 
     <section className="my-20">
