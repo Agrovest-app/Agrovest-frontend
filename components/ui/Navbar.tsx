@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <header>
-              <div className="absolute left-0 py-3 bg-[#314908] w-full z-30">
+              <div className="absolute left-0 py-3 bg-[#314908] w-full z-90">
         <div className="flex w-11/12 m-auto items-center justify-between">
         <div className="flex items-center gap-x-9">
         <div className="flex items-center gap-x-3 cursor-pointer group border-r border-gray-400 pr-8">
